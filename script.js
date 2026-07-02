@@ -326,4 +326,17 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
     }
 
 });
+function toggleTheme() {
+    document.body.classList.toggle("dark-mode");
+}
+function toggleBulb() {
 
+    let bulb = document.getElementById("bulb");
+
+    if (bulb.src.includes("bulboff")) {
+        bulb.src = "https://www.w3schools.com/js/pic_bulbon.gif";
+    } else {
+        bulb.src = "https://www.w3schools.com/js/pic_bulboff.gif";
+    }
+
+}
