@@ -1,868 +1,545 @@
 <!DOCTYPE html>
-<html>
-    <head>
-    <title>SHAIK ANAS - Portfolio</title>
-        <button onclick="changeTitle()">Change Title</button>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        :root{
-    --primary-color:#2563eb;
-    --secondary-color:#1f2937;
-    --text-color:#333;
-    --bg-color:#f4f6f9;
-        }
+<title>SHAIK ANAS | Portfolio</title>
 
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-        }
+<link rel="stylesheet" href="style.css">
 
-        body{
-    font-family: Arial, sans-serif;
-    background-color:var(--bg-color);
-    color:var(--text-color);
-    line-height:1.6;
-        }
+</head>
 
-        header{
-            background-color:#1f2937;
-            color:white;
-            text-align:center;
-            padding:20px;
-        }
-
-        nav{
-            margin-top:10px;
-        }
-
-        nav a{
-            color:white;
-            text-decoration:none;
-            margin:15px;
-            font-weight:bold;
-            transition:all 0.4s ease;
-        }
-
-        nav a:hover{
-            color:#facc15;
-            font-size:18px;
-        }
-
-        section{
-            background:white;
-            margin:20px;
-            padding:20px;
-            border-radius:10px;
-            box-shadow:0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        h2{
-            color:#2563eb;
-            margin-bottom:10px;
-            border-bottom:2px solid #2563eb;
-            padding-bottom:5px;
-        }
-
-        p{
-            margin-bottom:10px;
-        }
-
-        table{
-            width:100%;
-            border-collapse:collapse;
-            margin-top:10px;
-        }
-
-        table, th, td{
-            border:1px solid #333;
-        }
-
-        th{
-            background-color:#2563eb;
-            color:white;
-        }
-
-        th, td{
-            padding:10px;
-            text-align:center;
-        }
-
-        ul{
-            margin-left:25px;
-        }
-
-        li{
-            margin-bottom:8px;
-            color:#333;
-        }
-
-        article{
-            background-color:#eef4ff;
-            border-left:5px solid #2563eb;
-            padding:15px;
-            margin-bottom:15px;
-            border-radius:5px;
-        }
-
-        form{
-            margin-top:10px;
-        }
-
-        label{
-            font-weight:bold;
-        }
-
-        input,
-        textarea{
-            width:100%;
-            padding:10px;
-            margin-top:5px;
-            margin-bottom:15px;
-            border:1px solid #ccc;
-            border-radius:5px;
-        }
-
-        input[type="submit"]{
-            background-color:#2563eb;
-            color:white;
-            border:none;
-            cursor:pointer;
-            font-weight:bold;
-        }
-
-        input[type="submit"]:hover{
-            background-color:#1d4ed8;
-        }
-
-        footer{
-            background-color:#1f2937;
-            color:white;
-            text-align:center;
-            padding:15px;
-            margin-top:20px;
-        }
-
-        a{
-            color:#2563eb;
-        }
-        html{
-            scroll-behavior:smooth;
-        }
-
-nav{
-    position:sticky;
-    top:0;
-    background:#1f2937;
-    padding:15px;
-    z-index:1000;
-}
-
-.hero{
-    background-color:var(--secondary-color);
-
-    /* Background Properties */
-    background-position:center;
-    background-size:cover;
-    background-repeat:no-repeat;
-
-    color:white;
-    text-align:center;
-    padding:80px 20px;
-
-    animation:slideIn 1.5s ease;
-}
-
-.hero h1{
-    font-size:50px;
-}
-
-.hero h3{
-    color:#facc15;
-    margin:15px 0;
-}
-
-.btn{
-    display:inline-block;
-    margin-top:20px;
-    background:white;
-    color:var(--primary-color);
-    padding:12px 25px;
-    text-decoration:none;
-    border-radius:30px;
-    font-weight:bold;
-
-    animation:bounce 2s infinite;
-}
-
-.btn:hover{
-    transform:scale(1.05);
-}
-
-section{
-    animation:fadeIn 1s ease;
-}
-
-@keyframes slideIn{
-    from{
-        opacity:0;
-        transform:translateX(-100px);
-    }
-    to{
-        opacity:1;
-        transform:translateX(0);
-    }
-}
-@keyframes bounce{
-    0%,20%,50%,80%,100%{
-        transform:translateY(0);
-    }
-
-    40%{
-        transform:translateY(-15px);
-    }
-
-    60%{
-        transform:translateY(-8px);
-    }
-}
-
-article{
-    transition:0.3s;
-}
-
-article:hover{
-    transform:translateY(-8px);
-    box-shadow:0 8px 20px rgba(0,0,0,0.2);
-}
-
-.skills-grid{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-}
-
-.skills-grid li{
-    list-style:none;
-    background:var(--primary-color);
-    color:white;
-    padding:10px 15px;
-    border-radius:20px;
-    transition:0.4s;
-}
-
-.skills-grid li:hover{
-    transform:scale(1.1) rotate(3deg);
-}
-details{
-    margin-top:15px;
-}
-
-summary{
-    background:#2563eb;
-    color:white;
-    padding:12px;
-    border-radius:8px;
-    cursor:pointer;
-    font-weight:bold;
-    display:inline-block;
-}
-
-summary:hover{
-    background:#1d4ed8;
-}
-.contact-box{
-    text-align:center;
-    margin-top:20px;
-}
-
-.contact-btn{
-    display:inline-block;
-    margin:10px;
-    padding:15px 25px;
-    background:#2563eb;
-    color:white;
-    text-decoration:none;
-    border-radius:10px;
-    font-weight:bold;
-    transition:0.3s;
-}
-
-.contact-btn:hover{
-    background:#1d4ed8;
-    transform:translateY(-5px);
-}
-@media(max-width:768px){
-
-    nav a{
-        display:block;
-        margin:10px 0;
-    }
-
-    .hero h1{
-        font-size:32px;
-    }
-
-    table{
-        font-size:12px;
-    }
-
-    video{
-        width:100%;
-    }
-}
-
-@media(min-width:769px) and (max-width:1024px){
-
-    .hero h1{
-        font-size:42px;
-    }
-
-    section{
-        margin:15px;
-    }
-}
-
-@media(min-width:1200px){
-
-    main{
-        width:80%;
-        margin:auto;
-    }
-}
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-body{
-    font-family:'Poppins',sans-serif;
-}
-.hero{
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.3);
-}
-
-section:hover{
-    transform:translateY(-8px);
-    box-shadow:0 10px 25px rgba(37,99,235,0.2);
-}
-
-.contact-btn{
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
-}
-
-footer{
-    background:linear-gradient(135deg,#1e293b,#0f172a);
-}
-/* Animated Background */
-body{
-    background: linear-gradient(-45deg,#dbeafe,#bfdbfe,#e0e7ff,#f5f3ff);
-    background-size:400% 400%;
-    animation:bgAnimation 12s ease infinite;
-}
-
-@keyframes bgAnimation{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
-}
-
-/* Hero Decoration */
-.hero{
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
-    border-radius:25px;
-    box-shadow:0 15px 40px rgba(0,0,0,0.3);
-}
-
-.hero h1{
-    font-size:60px;
-    text-shadow:3px 3px 15px rgba(0,0,0,0.4);
-}
-
-.hero h3{
-    color:#facc15;
-}
-
-/* Glass Effect Sections */
-section{
-    background:rgba(255,255,255,0.9);
-    backdrop-filter:blur(10px);
-    border:1px solid rgba(255,255,255,0.4);
-    transition:0.4s;
-}
-
-section:hover{
-    transform:translateY(-10px);
-    box-shadow:0 15px 30px rgba(37,99,235,0.2);
-}
-
-/* Heading Decoration */
-h2{
-    position:relative;
-    padding-bottom:10px;
-}
-
-h2::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:0;
-    width:70px;
-    height:4px;
-    background:#2563eb;
-    border-radius:10px;
-}
-
-/* Skills */
-.skills-grid li{
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
-    box-shadow:0 5px 15px rgba(0,0,0,0.2);
-}
-
-.skills-grid li:hover{
-    transform:scale(1.1);
-}
-
-/* Project Cards */
-article{
-    border-radius:15px;
-    background:white;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-
-/* Buttons */
-.btn,
-.contact-btn,
-input[type="submit"]{
-    background:white;
-    color:#1d4ed8;
-    border:none;
-    box-shadow:0 5px 15px rgba(37,99,235,0.3);
-}
-
-.btn:hover,
-.contact-btn:hover,
-input[type="submit"]:hover{
-    transform:translateY(-5px) scale(1.05);
-}
-
-/* Footer */
-footer{
-    background:linear-gradient(135deg,#111827,#1e3a8a);
-}
-
-/* Scrollbar */
-::-webkit-scrollbar{
-    width:10px;
-}
-
-::-webkit-scrollbar-thumb{
-    background:#2563eb;
-    border-radius:20px;
-}
-.dark-mode{
-    background:#121212;
-    color:white;
-}
-
-.dark-mode section{
-    background:#1f1f1f;
-    color:white;
-}
-
-.dark-mode header,
-.dark-mode footer{
-    background:#000;
-}
-
-.dark-mode h2,
-.dark-mode h3,
-.dark-mode p,
-.dark-mode li,
-.dark-mode td,
-.dark-mode th,
-.dark-mode label{
-    color:white;
-}
-
-.dark-mode input,
-.dark-mode textarea,
-.dark-mode select{
-    background:#333;
-    color:white;
-    border:1px solid #666;
-}
-#topBtn{
-    display:none;
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    padding:10px 15px;
-    border:none;
-    border-radius:50%;
-    background:#2563eb;
-    color:white;
-    cursor:pointer;
-        }
-    </style>
-    </head>
-    
 <body>
 
 <header>
-    <h1>SHAIK ANAS</h1>
 
-    <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#education">Education</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-    </nav>
-    <hr>
+<h1>SHAIK ANAS</h1>
+
+<nav>
+
+<a href="#home">Home</a>
+
+<a href="#about">About</a>
+
+<a href="#education">Education</a>
+
+<a href="#skills">Skills</a>
+
+<a href="#projects">Projects</a>
+
+<a href="#contact">Contact</a>
+
+</nav>
+
 </header>
 
 <main>
+
 <section id="home" class="hero">
-    <h1>SHAIK ANAS</h1>
 
-    <h3>
-        Data Science Student | Python Developer |
-        Machine Learning Enthusiast
-    </h3>
+<img
+id="profileImage"
+src="profile.jpg"
+alt="Profile"
+class="profile">
 
-    <p>
-        Passionate about Data Analysis, Machine Learning,
-        Data Visualization and building real-world projects.
-    </p>
+<h1>SHAIK ANAS</h1>
 
-    <a href="#projects" class="btn">
-        View Projects
-    </a>
+<h3>
+Data Science Student |
+Python Developer |
+Machine Learning Enthusiast
+</h3>
 
-    <br><br>
+<p>
+Passionate about Machine Learning,
+Python, SQL and Data Analytics.
+</p>
 
-    <button class="contact-btn" onclick="toggleTheme()">
-        🌙 Toggle Theme
-    </button>
+<select
+id="profileSelect"
+onchange="changeProfileImage()">
 
-</section>
-<section id="about">
-    <h2>About Me</h2>
+<option value="default">
+Default Photo
+</option>
 
-    <img id="profileImage"
-         src="profile.jpg"
-         width="180"
-         style="display:block;margin:auto;border-radius:50%;">
+<option value="formal">
+Formal Photo
+</option>
 
-    <br>
+<option value="casual">
+Casual Photo
+</option>
 
-    <select id="profileSelect" onchange="changeProfileImage()">
-        <option value="default">Default</option>
-        <option value="formal">Formal</option>
-        <option value="casual">Casual</option>
-    </select>
-
-    <br><br>
-
-    <button class="contact-btn" onclick="changeAbout()">
-        Update About Me
-    </button>
-
-    <button class="contact-btn" onclick="changeTitle()">
-        Change Title
-    </button>
-
-    <button class="contact-btn" onclick="increaseHeading()">
-        Increase Heading Size
-    </button>
-
-    <br><br>
-
-    <p>
-        I am SHAIK ANAS, a B.Tech Data Science student at
-        Chalapathi Institute of Technology with knowledge of
-        Python, SQL, Data Visualization, Machine Learning,
-        Data Analysis, and Database Management Systems.
-    </p>
-
-    <h3>Career Goal</h3>
-
-    <p>
-        Seeking opportunities to apply technical and analytical
-        skills in software engineering and data-driven roles while
-        continuously learning new technologies.
-    </p>
-
-    <h3>Interests</h3>
-
-    <ul>
-        <li>Data Science</li>
-        <li>Machine Learning</li>
-        <li>Data Analytics</li>
-        <li>Software Development</li>
-        <li>Problem Solving</li>
-    </ul>
-</section>
-
-<section id="education">
-    <h2>Education</h2>
-
-    <table border="1">
-        <tr>
-            <th>Qualification</th>
-            <th>Institution</th>
-            <th>Board/University</th>
-            <th>Year</th>
-            <th>Percentage/CGPA</th>
-        </tr>
-
-        <tr>
-            <td>B.Tech Data Science</td>
-            <td>Chalapathi Institute of Technology</td>
-            <td>JNTUK</td>
-            <td>2023 - Present</td>
-            <td>7.50 CGPA</td>
-        </tr>
-
-        <tr>
-            <td>Intermediate (MPC)</td>
-            <td>Narayana Junior College</td>
-            <td>BIEAP</td>
-            <td>2023</td>
-            <td>60%</td>
-        </tr>
-
-        <tr>
-            <td>SSC</td>
-            <td>Sri Sai High School</td>
-            <td>BSEAP</td>
-            <td>2021</td>
-            <td>90%</td>
-        </tr>
-    </table>
-</section>
-
-<section id="skills">
-    <h2>Skills</h2>
-
-    <ul class="skills-grid">
-        <li>Python</li>
-        <li>SQL</li>
-        <li>Data Visualization</li>
-        <li>Database Management Systems (DBMS)</li>
-        <li>Data Analysis</li>
-        <li>Problem Solving</li>
-    </ul>
-</section>
+</select>
 
 <br><br>
-    <button onclick="toggleProjects()">Show / Hide Projects</button>
-<section id="projects">
-    <h2>Projects</h2>
-    <button class="contact-btn" onclick="addProject()">
-➕ Add Project
+
+<button onclick="changeTitle()">
+Change Website Title
 </button>
 
-<br><br>
+<button onclick="toggleTheme()">
+Theme Switcher
+</button>
+
+</section>
+<!-- ABOUT -->
+
+<section id="about">
+
+<h2>About Me</h2>
+
+<p id="aboutText">
+I am SHAIK ANAS, a B.Tech Data Science student at Chalapathi Institute of Technology with knowledge of Python, SQL, Data Analysis, Machine Learning, Data Visualization and DBMS. I enjoy building real-world projects and continuously learning new technologies.
+</p>
+
+<button onclick="changeAbout()">
+Change About Me
+</button>
+
+<button onclick="increaseHeading()">
+Increase Heading Size
+</button>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section id="education">
+
+<h2>Education</h2>
+
+<table>
+
+<tr>
+<th>Qualification</th>
+<th>Institution</th>
+<th>Year</th>
+<th>CGPA / Percentage</th>
+</tr>
+
+<tr>
+<td>B.Tech Data Science</td>
+<td>Chalapathi Institute of Technology</td>
+<td>2023 - Present</td>
+<td>7.50 CGPA</td>
+</tr>
+
+<tr>
+<td>Intermediate (MPC)</td>
+<td>Narayana Junior College</td>
+<td>2023</td>
+<td>60%</td>
+</tr>
+
+<tr>
+<td>SSC</td>
+<td>Sri Sai High School</td>
+<td>2021</td>
+<td>90%</td>
+</tr>
+
+</table>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<h2>Skills</h2>
+
+<ul class="skills">
+
+<li>Python</li>
+
+<li>SQL</li>
+
+<li>Machine Learning</li>
+
+<li>Data Analysis</li>
+
+<li>Data Visualization</li>
+
+<li>DBMS</li>
+
+<li>HTML</li>
+
+<li>CSS</li>
+
+<li>JavaScript</li>
+
+<li>Git & GitHub</li>
+
+</ul>
+
+<br>
+
+<button onclick="changeSkillsColor()">
+Change Skills Background
+</button>
+
+</section>
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<h2>Projects</h2>
+
+<div style="margin-bottom:20px;">
+
+<button onclick="toggleProjects()">
+Show / Hide Projects
+</button>
+
+<button onclick="addProject()">
+Add New Project
+</button>
+
+</div>
 
 <div id="projectContainer">
 
-    <article>
-        <h3>IPL 2025 Exploratory Data Analysis (EDA)</h3>
-        <p>
-            <b>Technologies:</b>
-            Python, Pandas, NumPy, Matplotlib, Seaborn,
-            Jupyter Notebook
-        </p>
+<article>
 
-        <p>
-            Performed Exploratory Data Analysis on IPL 2025
-            datasets to analyze team performance, player statistics,
-            and match trends.
-        </p>
-    </article>
+<h3>🏏 IPL 2025 Exploratory Data Analysis (EDA)</h3>
 
-    <article>
-        <h3>IPL Match Outcome Predictor</h3>
+<p>
+<b>Technologies:</b>
+Python, Pandas, NumPy, Matplotlib, Seaborn
+</p>
 
-        <p>
-            <b>Technologies:</b>
-            Python, Pandas, NumPy, Scikit-Learn,
-            Jupyter Notebook, GitHub
-        </p>
+<p>
+Performed Exploratory Data Analysis on IPL 2025 datasets to analyze team performance, player statistics, and match trends using data visualization.
+</p>
 
-        <p>
-            Developed a machine learning model that predicts
-            real-time win probability during IPL matches using
-            Random Forest Classifier.
-        </p>
-    </article>
+</article>
 
-    <article>
-    <h3>Student Grade Calculator</h3>
+<article>
 
-    <p>
-        <b>Technologies:</b>
-        HTML, CSS, JavaScript
-    </p>
+<h3>🏆 IPL Match Outcome Predictor</h3>
 
-    <p>
-        Developed an interactive web application to calculate student grades based on marks entered by the user. The application calculates total marks, average, percentage, grade, remarks, pass/fail status, and scholarship eligibility. It also includes input validation, dark mode, print functionality, responsive design, and local storage to save the latest result.
-    </p>
+<p>
+<b>Technologies:</b>
+Python, Pandas, NumPy, Scikit-Learn
+</p>
 
-    <p>
-        <a href="https://anassk-ds.github.io/Student-Grade-Calculator/" target="_blank">
-            🔗 Live Demo
-        </a>
-    </p>
+<p>
+Built a Machine Learning model using Random Forest Classifier to predict the winning probability of IPL matches.
+</p>
 
-    <p>
-        <a href="https://github.com/Anassk-ds/Student-Grade-Calculator" target="_blank">
-            💻 GitHub Repository
-        </a>
-    </p>
-    </article>
+</article>
+
+<article>
+
+<h3>🎓 Student Grade Calculator</h3>
+
+<p>
+<b>Technologies:</b>
+HTML, CSS, JavaScript
+</p>
+
+<p>
+Developed a responsive Student Grade Calculator with grade calculation, percentage, remarks, dark mode, print option, responsive design and local storage.
+</p>
+
+<p>
+
+<a href="https://anassk-ds.github.io/Student-Grade-Calculator/" target="_blank">
+
+🔗 Live Demo
+
+</a>
+
+</p>
+
+<p>
+
+<a href="https://github.com/Anassk-ds/Student-Grade-Calculator" target="_blank">
+
+💻 GitHub Repository
+
+</a>
+
+</p>
+
+</article>
+
 </div>
+
 </section>
+<!-- CERTIFICATIONS -->
+
+<section id="certifications">
+
+<h2>Certifications</h2>
+
+<ul>
+
+<li>Internet of Things (IoT) – NPTEL</li>
+
+<li>Cloud Virtual Internship – AWS Academy & EduSkills</li>
+
+<li>Generative AI Virtual Internship – Google Cloud & EduSkills</li>
+
+<li>Data Engineering Virtual Internship – EduSkills Academy</li>
+
+<li>Database Management System – CodeChef</li>
+
+</ul>
+
+</section>
+
+
+<!-- DATE & TIME -->
 
 <section>
-    <h2>Certifications</h2>
 
-    <ul>
-        <li>Internet of Things (IoT) – NPTEL</li>
-        <li>Cloud Virtual Internship – AWS Academy & EduSkills</li>
-        <li>Generative AI Virtual Internship – Google Cloud & EduSkills</li>
-        <li>Data Engineering Virtual Internship – EduSkills Academy</li>
-        <li>Database Management System Certificate – CodeChef</li>
-    </ul>
+<h2>Current Date & Time</h2>
+
+<div id="dateTime"></div>
+
 </section>
-<section>
-    <h2>Social Links</h2>
 
-    <a href="https://github.com/Anassk-ds" target="_blank">
-        GitHub Profile
-    </a>
 
-    <br><br>
-
-    <a href="https://www.linkedin.com/in/shaik-anas-b03a962a8"
-       target="_blank">
-        LinkedIn Profile
-    </a>
-</section>
+<!-- DIGITAL CLOCK -->
 
 <section>
-    <h2>Contact Information</h2>
 
-    <p>Email: anasshaik382@gmail.com</p>
-    <p>Phone: +91 7842386284</p>
+<h2>Digital Clock</h2>
+
+<div id="clock"></div>
+
 </section>
+
+
+<!-- RANDOM QUOTE -->
+
 <section>
-    <h2>College Location</h2>
 
-<iframe
-    src="https://www.google.com/maps?q=Chalapathi+Institute+of+Technology+Mothadaka+Guntur&output=embed"
-    width="100%"
-    height="450"
-    style="border:0;"
-    allowfullscreen=""
-    loading="lazy">
-</iframe>
+<h2>Motivational Quote</h2>
+
+<p id="quote">
+Click the button below to generate a quote.
+</p>
+
+<button onclick="showQuote()">
+
+Generate Quote
+
+</button>
+
 </section>
+
+
+<!-- LIGHT BULB -->
+
+<section id="bulbSection">
+
+<h2>Light Bulb Toggle</h2>
+
+<img
+id="bulb"
+src="https://www.w3schools.com/js/pic_bulboff.gif"
+width="150"
+alt="Bulb">
+
+<br><br>
+
+<button onclick="toggleBulb()">
+
+💡 Toggle Bulb
+
+</button>
+
+</section>
+
+
+<!-- RESUME -->
+
 <section id="resume">
-    <h2>Resume</h2>
 
-    <article style="text-align:center;">
+<h2>Resume</h2>
 
-        <p>
-            Download my latest resume by clicking the button below.
-        </p>
+<p>
+Download or View my latest resume.
+</p>
 
-        <br>
+<a
+href="resume.pdf"
+download>
 
-        <a href="resume.pdf"
-           download
-           class="contact-btn">
-            📄 Download Resume
-        </a>
+<button>
 
-        <br><br>
+Download Resume
 
-        <a href="resume.pdf"
-           target="_blank"
-           class="contact-btn">
-            👀 View Resume
-        </a>
+</button>
 
-    </article>
+</a>
+
+<a
+href="resume.pdf"
+target="_blank">
+
+<button>
+
+View Resume
+
+</button>
+
+</a>
+
 </section>
+<!-- CONTACT -->
+
 <section id="contact">
 
-    <h2>Contact Me</h2>
+<h2>Contact Me</h2>
 
-    <form id="contactForm">
+<form id="contactForm">
 
-        <label>Name</label>
-        <input type="text" id="contactName">
+<label>Name</label>
 
-        <label>Email</label>
-        <input type="email" id="contactEmail">
+<input
+type="text"
+id="contactName"
+placeholder="Enter your name">
 
-        <label>Message</label>
-        <textarea id="message" rows="5"></textarea>
-        <p>Characters: <span id="charCount">0</span></p>
+<label>Email</label>
 
-        <input type="submit" value="Send Message">
+<input
+type="email"
+id="contactEmail"
+placeholder="Enter your email">
 
-    </form>
+<label>Message</label>
 
-    <br>
+<textarea
+id="message"
+rows="6"
+placeholder="Enter your message"></textarea>
 
-    <div class="contact-box">
+<p>
 
-        <a href="mailto:anasshaik382@gmail.com" class="contact-btn">
-            📧 Email Me
-        </a>
+Characters :
+<span id="charCount">0</span>
 
-        <a href="tel:7842386284" class="contact-btn">
-            📞 Call Me
-        </a>
+</p>
 
-        <a href="https://www.linkedin.com/in/shaik-anas-b03a962a8"
-           target="_blank"
-           class="contact-btn">
-            💼 LinkedIn
-        </a>
+<button type="submit">
 
-    </div>
+Send Message
+
+</button>
+
+</form>
+
 </section>
-<section id="bulb-section">
 
-    <h2>Light Bulb Toggle</h2>
 
-    <img id="bulb"
-         src="https://www.w3schools.com/js/pic_bulboff.gif"
-         width="150"
-         alt="Bulb">
+<!-- SOCIAL LINKS -->
 
-    <br><br>
+<section>
 
-    <button class="contact-btn" onclick="toggleBulb()">
-        💡 Toggle Bulb
-    </button>
+<h2>Social Links</h2>
+
+<a
+href="https://github.com/Anassk-ds"
+target="_blank">
+
+GitHub
+
+</a>
+
+|
+
+<a
+href="https://www.linkedin.com/in/shaik-anas-b03a962a8"
+target="_blank">
+
+LinkedIn
+
+</a>
+
+</section>
+
+
+<!-- COLLEGE LOCATION -->
+
+<section>
+
+<h2>College Location</h2>
+
+<iframe
+
+src="https://www.google.com/maps?q=Chalapathi+Institute+of+Technology+Mothadaka+Guntur&output=embed"
+
+width="100%"
+
+height="400"
+
+style="border:0;"
+
+loading="lazy">
+
+</iframe>
 
 </section>
 
 </main>
+
+
+<!-- SCROLL TO TOP -->
+
+<button
+id="topBtn"
+onclick="scrollToTop()">
+
+⬆
+
+</button>
+
+
 <footer>
-    <h3>SHAIK ANAS</h3>
-    <p>Data Science Student | Python Developer</p>
-    <p>Email: anasshaik382@gmail.com</p>
-    <p>Phone: +91 7842386284</p>
-    <p>&copy; 2026 All Rights Reserved</p>
+
+<h2>SHAIK ANAS</h2>
+
+<p>
+
+Data Science Student |
+Python Developer
+
+</p>
+
+<p>
+
+Email :
+anasshaik382@gmail.com
+
+</p>
+
+<p>
+
+Phone :
++91 7842386284
+
+</p>
+
+<p>
+
+© 2026 SHAIK ANAS
+
+</p>
+
 </footer>
+
 <script src="script.js"></script>
-   <button id="topBtn" onclick="scrollToTop()">⬆ Top</button> 
+
 </body>
-</html>
+
+    </html>
