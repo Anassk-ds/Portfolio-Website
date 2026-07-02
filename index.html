@@ -497,9 +497,37 @@ footer{
         View Projects
     </a>
 </section>
-
 <section id="about">
     <h2>About Me</h2>
+
+    <img id="profileImage"
+         src="profile.jpg"
+         width="180"
+         style="display:block;margin:auto;border-radius:50%;">
+
+    <br>
+
+    <select id="profileSelect" onchange="changeProfileImage()">
+        <option value="default">Default</option>
+        <option value="formal">Formal</option>
+        <option value="casual">Casual</option>
+    </select>
+
+    <br><br>
+
+    <button class="contact-btn" onclick="changeAbout()">
+        Update About Me
+    </button>
+
+    <button class="contact-btn" onclick="changeTitle()">
+        Change Title
+    </button>
+
+    <button class="contact-btn" onclick="increaseHeading()">
+        Increase Heading Size
+    </button>
+
+    <br><br>
 
     <p>
         I am SHAIK ANAS, a B.Tech Data Science student at
@@ -577,9 +605,24 @@ footer{
         <li>Problem Solving</li>
     </ul>
 </section>
+<button class="contact-btn" onclick="toggleProjects()">
+    Show / Hide Projects
+</button>
 
+<br><br>
 <section id="projects">
     <h2>Projects</h2>
+    <button class="contact-btn" onclick="addProject()">
+➕ Add Project
+</button>
+
+<button class="contact-btn" onclick="toggleProjects()">
+👁 Show / Hide Projects
+</button>
+
+<br><br>
+
+<div id="projectContainer">
 
     <article>
         <h3>IPL 2025 Exploratory Data Analysis (EDA)</h3>
@@ -636,6 +679,7 @@ footer{
         </a>
     </p>
     </article>
+</div>
 </section>
 
 <section>
@@ -648,6 +692,7 @@ footer{
         <li>Data Engineering Virtual Internship – EduSkills Academy</li>
         <li>Database Management System Certificate – CodeChef</li>
     </ul>
+</section>
 <section>
     <h2>Social Links</h2>
 
@@ -709,10 +754,33 @@ footer{
     </article>
 </section>
 </section>
- <section id="contact">
+<section id="contact">
+
     <h2>Contact Me</h2>
 
+    <form id="contactForm">
+
+        <label>Name</label>
+        <input type="text" id="contactName">
+
+        <label>Email</label>
+        <input type="email" id="contactEmail">
+
+        <label>Message</label>
+        <textarea id="message" rows="5"></textarea>
+
+        <p>Characters:
+            <span id="charCount">0</span>
+        </p>
+
+        <input type="submit" value="Send Message">
+
+    </form>
+
+    <br>
+
     <div class="contact-box">
+
         <a href="mailto:anasshaik382@gmail.com" class="contact-btn">
             📧 Email Me
         </a>
@@ -726,8 +794,10 @@ footer{
            class="contact-btn">
             💼 LinkedIn
         </a>
+
     </div>
-</section>   
+
+</section>
 
 </main>
 <footer>
