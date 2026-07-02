@@ -1,8 +1,7 @@
 // DOM Selection
 
 const about = document.getElementById("about");
-const projects = document.getElementById("projectContainer");
-
+const projects = document.getElementById("projects");
 // Change About Me
 function changeAbout() {
 
@@ -98,7 +97,7 @@ function changeSkillsColor(){
 
 function increaseHeading(){
 
-    const headings = document.querySelectorAll(".section-title");
+    const headings = document.querySelectorAll("h2");
 
     headings.forEach(heading=>{
 
@@ -111,15 +110,7 @@ function increaseHeading(){
 }
 
 
-// ===============================
-// Theme Switcher
-// ===============================
-
-function toggleTheme(){
-
-    document.body.classList.toggle("dark-mode");
-
-}
+// ============
 // ===============================
 // Change Profile Image
 // ===============================
@@ -185,28 +176,6 @@ function validateForm(event){
     alert("Message Sent Successfully!");
 
     return true;
-
-}
-
-
-// ===============================
-// Light Bulb Toggle
-// ===============================
-
-function bulbToggle(){
-
-    const bulb = document.getElementById("bulb");
-
-    if(bulb.src.includes("bulb-off")){
-
-        bulb.src="bulb-on.png";
-
-    }
-    else{
-
-        bulb.src="bulb-off.png";
-
-    }
 
 }
 // ======================================
@@ -329,6 +298,7 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
 function toggleTheme() {
     document.body.classList.toggle("dark-mode");
 }
+
 function toggleBulb() {
 
     let bulb = document.getElementById("bulb");
