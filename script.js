@@ -50,6 +50,12 @@ function toggleProjects() {
         projects.style.display = "none";
     }
 }
+const message = document.getElementById("message");
+const charCount = document.getElementById("charCount");
+
+message.addEventListener("keyup", function () {
+    charCount.innerText = message.value.length;
+});
 // ===============================
 // Highlight Navigation Link
 // ===============================
