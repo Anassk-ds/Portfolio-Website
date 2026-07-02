@@ -50,10 +50,10 @@ function toggleProjects() {
     }
 }
 const message = document.getElementById("message");
-const charCount = document.getElementById("charCount");
+const count = document.getElementById("charCount");
 
 message.addEventListener("keyup", function () {
-    charCount.innerText = message.value.length;
+    count.textContent = message.value.length;
 });
 // ===============================
 // Highlight Navigation Link
@@ -310,3 +310,19 @@ function toggleBulb() {
     }
 
 }
+window.onscroll = function () {
+    const btn = document.getElementById("topBtn");
+
+    if (document.documentElement.scrollTop > 200) {
+        btn.style.display = "block";
+    } else {
+        btn.style.display = "none";
+    }
+};
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+    }
