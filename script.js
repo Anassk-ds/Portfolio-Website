@@ -42,13 +42,13 @@ function addProject() {
 
 // Show / Hide Projects
 function toggleProjects() {
+    let projects = document.getElementById("projects");
 
     if (projects.style.display === "none") {
         projects.style.display = "block";
     } else {
         projects.style.display = "none";
     }
-
 }
 // ===============================
 // Highlight Navigation Link
