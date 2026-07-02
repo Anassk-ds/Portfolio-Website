@@ -458,6 +458,38 @@ footer{
     background:#2563eb;
     border-radius:20px;
 }
+.dark-mode{
+    background:#121212;
+    color:white;
+}
+
+.dark-mode section{
+    background:#1f1f1f;
+    color:white;
+}
+
+.dark-mode header,
+.dark-mode footer{
+    background:#000;
+}
+
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode p,
+.dark-mode li,
+.dark-mode td,
+.dark-mode th,
+.dark-mode label{
+    color:white;
+}
+
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select{
+    background:#333;
+    color:white;
+    border:1px solid #666;
+}
 
     </style>
     </head>
@@ -479,7 +511,6 @@ footer{
 </header>
 
 <main>
-
 <section id="home" class="hero">
     <h1>SHAIK ANAS</h1>
 
@@ -496,6 +527,13 @@ footer{
     <a href="#projects" class="btn">
         View Projects
     </a>
+
+    <br><br>
+
+    <button class="contact-btn" onclick="toggleTheme()">
+        🌙 Toggle Theme
+    </button>
+
 </section>
 <section id="about">
     <h2>About Me</h2>
