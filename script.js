@@ -314,4 +314,16 @@ function scrollTopPage(){
     });
 
 }
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+
+    let name = document.getElementById("contactName").value;
+    let email = document.getElementById("contactEmail").value;
+    let message = document.getElementById("message").value;
+
+    if (name === "" || email === "" || message === "") {
+        alert("Please fill all the fields.");
+        e.preventDefault();
+    }
+
+});
 
