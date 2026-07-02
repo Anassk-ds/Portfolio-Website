@@ -2,6 +2,7 @@
 <html>
     <head>
     <title>SHAIK ANAS - Portfolio</title>
+        <button onclick="changeTitle()">Change Title</button>
 
     <style>
         :root{
@@ -490,7 +491,18 @@ footer{
     color:white;
     border:1px solid #666;
 }
-
+#topBtn{
+    display:none;
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    padding:10px 15px;
+    border:none;
+    border-radius:50%;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+        }
     </style>
     </head>
     
@@ -645,14 +657,11 @@ footer{
 </section>
 
 <br><br>
+    <button onclick="toggleProjects()">Show / Hide Projects</button>
 <section id="projects">
     <h2>Projects</h2>
     <button class="contact-btn" onclick="addProject()">
 ➕ Add Project
-</button>
-
-<button class="contact-btn" onclick="toggleProjects()">
-👁 Show / Hide Projects
 </button>
 
 <br><br>
@@ -854,5 +863,6 @@ footer{
     <p>&copy; 2026 All Rights Reserved</p>
 </footer>
 <script src="script.js"></script>
+   <button id="topBtn" onclick="scrollToTop()">⬆ Top</button> 
 </body>
 </html>
