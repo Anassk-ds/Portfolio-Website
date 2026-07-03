@@ -384,6 +384,24 @@ height:140px;
 }
 
 }
+.error{
+    color:red;
+    font-size:14px;
+    margin-bottom:10px;
+    display:block;
+}
+#welcomeMessage{
+    position:fixed;
+    top:20px;
+    right:20px;
+    background:#2563eb;
+    color:white;
+    padding:15px 20px;
+    border-radius:10px;
+    font-weight:bold;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+    z-index:1000;
+}
 </style>
 
 </head>
@@ -411,7 +429,9 @@ height:140px;
 </nav>
 
 </header>
-
+<div id="welcomeMessage" style="display:none;">
+    👋 Welcome to SHAIK ANAS's Portfolio
+</div>
 <main>
 
 <section id="home" class="hero">
@@ -766,16 +786,16 @@ LinkedIn
 Download or View my latest resume.
 </p>
 
-<a
-href="resume.pdf"
-download>
+<a href="resume.pdf" download class="contact-btn">
+    Download Resume
+</a>
 
-<button>
-
-Download Resume
-
+<button onclick="uploadResume()" class="contact-btn">
+    Upload Resume
 </button>
 
+<a href="resume.pdf" target="_blank" class="contact-btn">
+    View Resume
 </a>
 
 <a
@@ -813,13 +833,15 @@ View Resume
 </div>
 
 <form id="contactForm">
-
 <label>Name</label>
 
 <input
 type="text"
 id="contactName"
 placeholder="Enter your name">
+
+<span id="nameError" class="error"></span>
+
 
 <label>Email</label>
 
@@ -828,6 +850,19 @@ type="email"
 id="contactEmail"
 placeholder="Enter your email">
 
+<span id="emailError" class="error"></span>
+
+
+<label>Phone Number</label>
+
+<input
+type="text"
+id="phone"
+placeholder="Enter your 10-digit phone number">
+
+<span id="phoneError" class="error"></span>
+
+
 <label>Message</label>
 
 <textarea
@@ -835,13 +870,13 @@ id="message"
 rows="6"
 placeholder="Enter your message"></textarea>
 
-<p>
+<span id="messageError" class="error"></span>
 
+
+<p>
 Characters :
 <span id="charCount">0</span>
-
 </p>
-
 <button type="submit">
 
 Send Message
@@ -849,6 +884,18 @@ Send Message
 </button>
 
 </form>
+
+</section>
+
+<section>
+
+    <h2>Portfolio Information</h2>
+
+    <button onclick="loadPortfolioInfo()" class="contact-btn">
+        Load Portfolio Info
+    </button>
+
+    <p id="portfolioInfo"></p>
 
 </section>
 
@@ -924,5 +971,4 @@ Phone :
 <script src="script.js"></script>
 
 </body>
-
-    </html>
+</html>
