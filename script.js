@@ -65,20 +65,19 @@ projectContainer.appendChild(article);
 // SHOW / HIDE PROJECTS
 // =============================
 
-function toggleProjects(){
+function toggleProjects() {
 
-const section =
-document.getElementById("projectContainer");
+    const projectContainer = document.getElementById("projectContainer");
 
-if(section.style.display==="none"){
+    if (projectContainer.style.display === "none") {
 
-section.style.display="block";
+        projectContainer.style.display = "block";
 
-}else{
+    } else {
 
-section.style.display="none";
+        projectContainer.style.display = "none";
 
-}
+    }
 
 }
 
