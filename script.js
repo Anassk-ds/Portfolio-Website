@@ -40,12 +40,23 @@ function changeAbout() {
 // CHANGE PAGE TITLE
 // =============================
 
+let titleChanged = false;
+
 function changeTitle(){
 
-document.title =
-"SHAIK ANAS | Data Science Portfolio";
+    if(!titleChanged){
 
-alert("Website title changed successfully!");
+        document.title = "SHAIK ANAS | Data Science Portfolio";
+        alert("Website title changed!");
+
+    }else{
+
+        document.title = "SHAIK ANAS | Portfolio";
+        alert("Website title restored!");
+
+    }
+
+    titleChanged = !titleChanged;
 
 }
 
@@ -159,13 +170,18 @@ function changeSkillsColor(){
 // INCREASE HEADING SIZE
 // =============================
 
+let headingLarge=false;
+
 function increaseHeading(){
 
-headings.forEach((heading)=>{
+    headings.forEach(function(heading){
 
-heading.style.fontSize="35px";
+        heading.style.fontSize=
+        headingLarge?"30px":"38px";
 
-});
+    });
+
+    headingLarge=!headingLarge;
 
 }
 
@@ -173,19 +189,17 @@ heading.style.fontSize="35px";
 // HIGHLIGHT ACTIVE NAVIGATION
 // =============================
 
-navLinks.forEach((link)=>{
+navLinks.forEach(link => {
 
-link.addEventListener("click",function(){
+    link.addEventListener("click", function(event){
 
-navLinks.forEach((nav)=>{
+        navLinks.forEach(nav => nav.classList.remove("active"));
 
-nav.classList.remove("active");
+        event.target.classList.add("active");
 
-});
+        alert("You clicked: " + event.target.innerText);
 
-this.classList.add("active");
-
-});
+    });
 
 });
 // =============================
@@ -195,7 +209,7 @@ this.classList.add("active");
 const message = document.getElementById("message");
 const charCount = document.getElementById("charCount");
 
-message.addEventListener("keyup", function () {
+message.addEventListener("input", function () {
 
     charCount.textContent = message.value.length;
 
@@ -204,34 +218,67 @@ message.addEventListener("keyup", function () {
 // =============================
 // CONTACT FORM VALIDATION
 // =============================
-
 const form = document.getElementById("contactForm");
 
-form.addEventListener("submit", function (e) {
+form.addEventListener("submit", function(event){
 
-    e.preventDefault();
+    event.preventDefault();
+
+    document.getElementById("nameError").textContent = "";
+    document.getElementById("emailError").textContent = "";
+    document.getElementById("phoneError").textContent = "";
+    document.getElementById("messageError").textContent = "";
 
     const name = document.getElementById("contactName").value.trim();
-
     const email = document.getElementById("contactEmail").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const message = document.getElementById("message").value.trim();
 
-    const msg = message.value.trim();
+    let valid = true;
 
-    if (name === "" || email === "" || msg === "") {
-
-        alert("Please fill all the fields.");
-
-        return;
-
+    if(name === ""){
+        document.getElementById("nameError").textContent = "Name cannot be empty";
+        valid = false;
     }
 
-    alert("Message sent successfully!");
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    form.reset();
+    if(!emailPattern.test(email)){
+        document.getElementById("emailError").textContent = "Enter a valid email";
+        valid = false;
+    }
 
-    charCount.textContent = "0";
+    if(!/^\d{10}$/.test(phone)){
+        document.getElementById("phoneError").textContent = "Phone must contain exactly 10 digits";
+        valid = false;
+    }
+
+    if(message.length < 20){
+        document.getElementById("messageError").textContent = "Message must contain at least 20 characters";
+        valid = false;
+    }
+
+    if(valid){
+
+       showSuccessMessage(success);
+
+        form.reset();
+
+        charCount.textContent = "0";
+    }
 
 });
+function showSuccessMessage(callback){
+
+    callback();
+
+}
+
+function success(){
+
+    alert("Form submitted successfully!");
+
+}
 
 // =============================
 // THEME SWITCHER
@@ -273,18 +320,22 @@ function toggleBulb() {
 // DIGITAL CLOCK
 // =============================
 
-function updateClock() {
+function updateClock(){
 
     const now = new Date();
 
+    const hours = String(now.getHours()).padStart(2,'0');
+    const minutes = String(now.getMinutes()).padStart(2,'0');
+    const seconds = String(now.getSeconds()).padStart(2,'0');
+
     document.getElementById("clock").innerHTML =
-        now.toLocaleTimeString();
+    `${hours}:${minutes}:${seconds}`;
 
 }
 
-setInterval(updateClock, 1000);
-
 updateClock();
+
+setInterval(updateClock,1000);
 
 // =============================
 // CURRENT DATE & TIME
@@ -366,14 +417,21 @@ behavior:"smooth"
 // =============================
 // WELCOME MESSAGE
 // =============================
+window.addEventListener("load", function(){
 
-window.addEventListener("load",function(){
+    setTimeout(function(){
 
-setTimeout(function(){
+        const welcome = document.getElementById("welcomeMessage");
 
-alert("Welcome to SHAIK ANAS Portfolio");
+        welcome.style.display = "block";
 
-},500);
+        setTimeout(function(){
+
+            welcome.style.display = "none";
+
+        },3000);
+
+    },3000);
 
 });
 
@@ -382,3 +440,78 @@ alert("Welcome to SHAIK ANAS Portfolio");
 // =============================
 
 showQuote();
+
+function uploadResume(){
+
+    const resumePromise = new Promise(function(resolve,reject){
+
+        const uploaded = true;
+
+        setTimeout(function(){
+
+            if(uploaded){
+
+                resolve("Resume uploaded successfully!");
+
+            }else{
+
+                reject("Resume upload failed!");
+
+            }
+
+        },2000);
+
+    });
+
+    resumePromise
+    .then(function(message){
+
+        alert(message);
+
+    })
+    .catch(function(error){
+
+        alert(error);
+
+    });
+
+}
+
+function fetchPortfolioInfo(){
+
+    return new Promise(function(resolve){
+
+        setTimeout(function(){
+
+            resolve(
+                "I am SHAIK ANAS, a B.Tech Data Science student skilled in Python, SQL, Machine Learning, Data Analysis, HTML, CSS and JavaScript."
+            );
+
+        },2000);
+
+    });
+
+}
+
+async function loadPortfolioInfo(){
+
+    try{
+
+        document.getElementById("portfolioInfo").innerHTML =
+        "Loading...";
+
+        const data = await fetchPortfolioInfo();
+
+        document.getElementById("portfolioInfo").innerHTML =
+        data;
+
+    }
+
+    catch(error){
+
+        document.getElementById("portfolioInfo").innerHTML =
+        "Error loading portfolio information.";
+
+    }
+
+}
