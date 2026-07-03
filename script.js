@@ -15,13 +15,27 @@ heroHeading.style.color = "#facc15";
 // CHANGE ABOUT TEXT
 // =============================
 
+let aboutChanged = false;
+
 function changeAbout() {
 
-aboutText.innerHTML =
-"I am SHAIK ANAS, a passionate Data Science student who enjoys building real-world web applications, Python projects, Machine Learning models, and continuously learning new technologies.";
+    if (!aboutChanged) {
+
+        aboutText.innerHTML =
+        "I am SHAIK ANAS, a passionate Data Science student who enjoys building real-world web applications, Python projects, Machine Learning models and continuously learning new technologies.";
+
+        aboutChanged = true;
+
+    } else {
+
+        aboutText.innerHTML =
+        "I am SHAIK ANAS, a B.Tech Data Science student at Chalapathi Institute of Technology with knowledge of Python, SQL, Data Analysis, Machine Learning and DBMS.";
+
+        aboutChanged = false;
+
+    }
 
 }
-
 // =============================
 // CHANGE PAGE TITLE
 // =============================
@@ -41,23 +55,31 @@ alert("Website title changed successfully!");
 
 function addProject(){
 
-const article = document.createElement("article");
+    if(document.getElementById("expenseProject")){
 
-article.innerHTML = `
+        alert("Project already added!");
 
-<h3>Expense Tracker</h3>
+        return;
 
-<p><b>Technologies:</b>
-HTML, CSS, JavaScript
-</p>
+    }
 
-<p>
-A web application to manage income and expenses with Local Storage support.
-</p>
+    const article=document.createElement("article");
 
-`;
+    article.id="expenseProject";
 
-projectContainer.appendChild(article);
+    article.innerHTML=`
+
+    <h3>Expense Tracker</h3>
+
+    <p><b>Technologies:</b> HTML, CSS, JavaScript</p>
+
+    <p>
+    A web application to manage income and expenses using Local Storage.
+    </p>
+
+    `;
+
+    projectContainer.appendChild(article);
 
 }
 
@@ -113,10 +135,23 @@ profileImage.src="profile.jpg";
 // =============================
 // CHANGE SKILLS BACKGROUND
 // =============================
+let skillColor = false;
 
 function changeSkillsColor(){
 
-skillsSection.style.background="#dbeafe";
+    if(!skillColor){
+
+        skillsSection.style.background="#dbeafe";
+
+        skillColor=true;
+
+    }else{
+
+        skillsSection.style.background="white";
+
+        skillColor=false;
+
+    }
 
 }
 
