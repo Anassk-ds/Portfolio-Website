@@ -1,328 +1,350 @@
-// DOM Selection
+// =============================
+// DOM SELECTION
+// =============================
 
-const about = document.getElementById("about");
-const projects = document.getElementById("projects");
-// Change About Me
+const aboutText = document.getElementById("aboutText");
+const profileImage = document.getElementById("profileImage");
+const skillsSection = document.getElementById("skills");
+const projectContainer = document.getElementById("projectContainer");
+const headings = document.querySelectorAll("h2");
+const navLinks = document.querySelectorAll("nav a");
+const heroHeading = document.querySelector(".hero h1");
+heroHeading.style.color = "#facc15";
+
+// =============================
+// CHANGE ABOUT TEXT
+// =============================
+
 function changeAbout() {
 
-    about.querySelector("p").innerHTML =
-    "I am a passionate Data Science student with strong skills in Python, SQL, HTML, CSS and JavaScript. I enjoy building real-world projects and continuously learning new technologies.";
+aboutText.innerHTML =
+"I am SHAIK ANAS, a passionate Data Science student who enjoys building real-world web applications, Python projects, Machine Learning models, and continuously learning new technologies.";
 
 }
 
-// Change Website Title
-function changeTitle() {
+// =============================
+// CHANGE PAGE TITLE
+// =============================
 
-    document.title = "SHAIK ANAS | Data Science Portfolio";
+function changeTitle(){
 
-}
+document.title =
+"SHAIK ANAS | Data Science Portfolio";
 
-// Add New Project
-function addProject() {
-
-    const project = document.createElement("div");
-
-    project.className = "card";
-
-    project.innerHTML = `
-        <h3>💰 Expense Tracker</h3>
-
-        <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
-
-        <p>
-        Developed an Expense Tracker that allows users to add,
-        delete and manage income and expenses using Local Storage.
-        </p>
-    `;
-
-    projects.appendChild(project);
+alert("Website title changed successfully!");
 
 }
 
-// Show / Hide Projects
-function toggleProjects() {
-    let projects = document.getElementById("projects");
+// =============================
+// ADD NEW PROJECT
+// =============================
 
-    if (projects.style.display === "none") {
-        projects.style.display = "block";
-    } else {
-        projects.style.display = "none";
-    }
-}
-const message = document.getElementById("message");
-const count = document.getElementById("charCount");
+function addProject(){
 
-message.addEventListener("keyup", function () {
-    count.textContent = message.value.length;
-});
-// ===============================
-// Highlight Navigation Link
-// ===============================
+const article = document.createElement("article");
 
-const navLinks = document.querySelectorAll("nav a");
+article.innerHTML = `
 
-navLinks.forEach(link => {
+<h3>Expense Tracker</h3>
 
-    link.addEventListener("click", function(){
+<p><b>Technologies:</b>
+HTML, CSS, JavaScript
+</p>
 
-        navLinks.forEach(item=>{
-            item.style.background="transparent";
-            item.style.color="white";
-        });
+<p>
+A web application to manage income and expenses with Local Storage support.
+</p>
 
-        this.style.background="#2563eb";
-        this.style.color="white";
+`;
 
-    });
-
-});
-
-
-// ===============================
-// Change Skills Background
-// ===============================
-
-function changeSkillsColor(){
-
-    const skills = document.getElementById("skills");
-
-    skills.style.background="#dbeafe";
+projectContainer.appendChild(article);
 
 }
 
+// =============================
+// SHOW / HIDE PROJECTS
+// =============================
 
-// ===============================
-// Increase Heading Size
-// ===============================
+function toggleProjects(){
 
-function increaseHeading(){
+const section =
+document.getElementById("projectContainer");
 
-    const headings = document.querySelectorAll("h2");
+if(section.style.display==="none"){
 
-    headings.forEach(heading=>{
+section.style.display="block";
 
-        let size = parseInt(window.getComputedStyle(heading).fontSize);
+}else{
 
-        heading.style.fontSize=(size+4)+"px";
-
-    });
+section.style.display="none";
 
 }
 
+}
 
-// ============
-// ===============================
-// Change Profile Image
-// ===============================
+// =============================
+// PROFILE IMAGE SWITCHER
+// =============================
 
 function changeProfileImage(){
 
-    const image = document.getElementById("profileImage");
-    const option = document.getElementById("profileSelect").value;
+const value =
+document.getElementById("profileSelect").value;
 
-    if(option === "formal"){
-        image.src = "formal.jpg";
-    }
-    else if(option === "casual"){
-        image.src = "casual.jpg";
-    }
-    else{
-        image.src = "profile.jpg";
-    }
+if(value==="formal"){
+
+profileImage.src="formal.jpg";
 
 }
 
+else if(value==="casual"){
 
-// ===============================
-// Live Character Counter
-// ===============================
-
-function characterCount(){
-
-    const message = document.getElementById("message");
-    const count = document.getElementById("count");
-
-    count.innerHTML =
-    "Characters : " + message.value.length;
+profileImage.src="casual.jpg";
 
 }
 
+else{
 
-// ===============================
-// Contact Form Validation
-// ===============================
+profileImage.src="profile.jpg";
 
-function validateForm(event){
+}
 
-    event.preventDefault();
+}
 
-    const name =
-    document.getElementById("name").value.trim();
+// =============================
+// CHANGE SKILLS BACKGROUND
+// =============================
 
-    const email =
-    document.getElementById("email").value.trim();
+function changeSkillsColor(){
 
-    const message =
-    document.getElementById("message").value.trim();
+skillsSection.style.background="#dbeafe";
 
-    if(name==="" || email==="" || message===""){
+}
+
+// =============================
+// INCREASE HEADING SIZE
+// =============================
+
+function increaseHeading(){
+
+headings.forEach((heading)=>{
+
+heading.style.fontSize="35px";
+
+});
+
+}
+
+// =============================
+// HIGHLIGHT ACTIVE NAVIGATION
+// =============================
+
+navLinks.forEach((link)=>{
+
+link.addEventListener("click",function(){
+
+navLinks.forEach((nav)=>{
+
+nav.classList.remove("active");
+
+});
+
+this.classList.add("active");
+
+});
+
+});
+// =============================
+// CHARACTER COUNTER
+// =============================
+
+const message = document.getElementById("message");
+const charCount = document.getElementById("charCount");
+
+message.addEventListener("keyup", function () {
+
+    charCount.textContent = message.value.length;
+
+});
+
+// =============================
+// CONTACT FORM VALIDATION
+// =============================
+
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", function (e) {
+
+    e.preventDefault();
+
+    const name = document.getElementById("contactName").value.trim();
+
+    const email = document.getElementById("contactEmail").value.trim();
+
+    const msg = message.value.trim();
+
+    if (name === "" || email === "" || msg === "") {
 
         alert("Please fill all the fields.");
 
-        return false;
+        return;
 
     }
 
-    alert("Message Sent Successfully!");
+    alert("Message sent successfully!");
 
-    return true;
+    form.reset();
 
-}
-// ======================================
-// Dynamic Welcome Message
-// ======================================
+    charCount.textContent = "0";
 
-window.onload = function(){
+});
 
-    alert("Welcome to SHAIK ANAS's Portfolio Website!");
+// =============================
+// THEME SWITCHER
+// =============================
 
-    showDateTime();
+function toggleTheme() {
 
-    updateClock();
-
-};
-
-
-// ======================================
-// Current Date & Time
-// ======================================
-
-function showDateTime(){
-
-    const date = new Date();
-
-    const dateBox = document.getElementById("dateTime");
-
-    if(dateBox){
-
-        dateBox.innerHTML =
-        "<b>Date & Time:</b> " + date.toLocaleString();
-
-    }
+    document.body.classList.toggle("dark-mode");
 
 }
 
+// =============================
+// LIGHT BULB TOGGLE
+// =============================
 
-// ======================================
-// Digital Clock
-// ======================================
+let bulbOn = false;
 
-function updateClock(){
+function toggleBulb() {
 
-    const clock = document.getElementById("clock");
+    const bulb = document.getElementById("bulb");
 
-    if(clock){
+    if (bulbOn) {
 
-        setInterval(function(){
+        bulb.src = "https://www.w3schools.com/js/pic_bulboff.gif";
 
-            const now = new Date();
+        bulbOn = false;
 
-            clock.innerHTML =
-            "<b>Current Time:</b> " +
-            now.toLocaleTimeString();
+    } else {
 
-        },1000);
+        bulb.src = "https://www.w3schools.com/js/pic_bulbon.gif";
+
+        bulbOn = true;
 
     }
 
 }
 
+// =============================
+// DIGITAL CLOCK
+// =============================
 
-// ======================================
-// Random Quote Generator
-// ======================================
+function updateClock() {
 
-const quotes=[
+    const now = new Date();
 
-"Believe in yourself.",
-"Learning never stops.",
-"Code. Debug. Repeat.",
-"Success comes from consistency.",
-"Dream big and work hard."
+    document.getElementById("clock").innerHTML =
+        now.toLocaleTimeString();
+
+}
+
+setInterval(updateClock, 1000);
+
+updateClock();
+
+// =============================
+// CURRENT DATE & TIME
+// =============================
+
+function updateDateTime() {
+
+    const now = new Date();
+
+    document.getElementById("dateTime").innerHTML =
+        now.toLocaleString();
+
+}
+
+setInterval(updateDateTime, 1000);
+
+updateDateTime();
+// =============================
+// RANDOM QUOTES
+// =============================
+
+const quotes = [
+
+"Success doesn't come from what you do occasionally. It comes from what you do consistently.",
+
+"Dream big. Start small. Act now.",
+
+"Every expert was once a beginner.",
+
+"Believe in yourself and all that you are.",
+
+"Learning never exhausts the mind."
 
 ];
 
 function showQuote(){
 
-    const random=Math.floor(Math.random()*quotes.length);
+const random =
+Math.floor(Math.random()*quotes.length);
 
-    const quote=document.getElementById("quote");
-
-    if(quote){
-
-        quote.innerHTML=
-        "<b>Quote:</b> "+quotes[random];
-
-    }
+document.getElementById("quote").innerHTML =
+quotes[random];
 
 }
 
+// =============================
+// SCROLL TO TOP
+// =============================
 
-// ======================================
-// Scroll to Top
-// ======================================
+const topBtn =
+document.getElementById("topBtn");
 
-function scrollTopPage(){
+window.addEventListener("scroll",function(){
 
-    window.scrollTo({
+if(document.documentElement.scrollTop>300){
 
-        top:0,
+topBtn.style.display="block";
 
-        behavior:"smooth"
+}else{
 
-    });
+topBtn.style.display="none";
 
 }
-document.getElementById("contactForm").addEventListener("submit", function(e) {
-
-    let name = document.getElementById("contactName").value;
-    let email = document.getElementById("contactEmail").value;
-    let message = document.getElementById("message").value;
-
-    if (name === "" || email === "" || message === "") {
-        alert("Please fill all the fields.");
-        e.preventDefault();
-    }
 
 });
-function toggleTheme() {
-    document.body.classList.toggle("dark-mode");
-}
 
-function toggleBulb() {
+function scrollToTop(){
 
-    let bulb = document.getElementById("bulb");
+window.scrollTo({
 
-    if (bulb.src.includes("bulboff")) {
-        bulb.src = "https://www.w3schools.com/js/pic_bulbon.gif";
-    } else {
-        bulb.src = "https://www.w3schools.com/js/pic_bulboff.gif";
-    }
+top:0,
+
+behavior:"smooth"
+
+});
 
 }
-window.onscroll = function () {
-    const btn = document.getElementById("topBtn");
 
-    if (document.documentElement.scrollTop > 200) {
-        btn.style.display = "block";
-    } else {
-        btn.style.display = "none";
-    }
-};
+// =============================
+// WELCOME MESSAGE
+// =============================
 
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-    }
+window.addEventListener("load",function(){
+
+setTimeout(function(){
+
+alert("Welcome to SHAIK ANAS Portfolio");
+
+},500);
+
+});
+
+// =============================
+// DEFAULT QUOTE
+// =============================
+
+showQuote();
