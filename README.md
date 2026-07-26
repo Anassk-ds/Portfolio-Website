@@ -55,7 +55,7 @@ Certifications
 - Data Engineering Virtual Internship – EduSkills Academy
 - Database Management System Certificate – CodeChef
 
----
+--
 
 Contact
 
@@ -64,7 +64,6 @@ Email: anasshaik382@gmail.com
 Phone: +91 7842386284
 
 ---
-
 Links
 
 GitHub: https://github.com/Anassk-ds
