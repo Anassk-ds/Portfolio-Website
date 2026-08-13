@@ -2,7 +2,7 @@
    SHAIK ANAS — PORTFOLIO SCRIPT
    Organized by feature. Search the section headers to find
    the part you want to edit.
-   ============================================================ */
+   ========================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
