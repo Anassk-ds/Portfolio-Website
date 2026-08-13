@@ -5,7 +5,6 @@ About
 This is my personal portfolio website developed using HTML and CSS. It showcases my academic background, technical skills, projects, certifications, contact information, and social profiles. The website was created as part of my B.Tech Data Science academic portfolio at Chalapathi Institute of Technology.
 
 ---
-
 Education
 
 - B.Tech Data Science – Chalapathi Institute of Technology (CGPA: 7.50)
