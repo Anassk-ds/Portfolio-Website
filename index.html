@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shaik Anas — Full-Stack &amp; Data Science Developer</title>
-<meta name="description" content="Portfolio of Shaik Anas, a Final-year B.Tech Data Science student building full-stack web apps and machine learning projects, seeking software engineering internships.">
+<meta name="description" content="Portfolio of Shaik Anas, a 3rd-year B.Tech Data Science student building full-stack web apps and machine learning projects, seeking software engineering internships.">
 <meta property="og:title" content="Shaik Anas — Full-Stack & Data Science Developer">
 <meta property="og:description" content="Projects, skills, and contact info for Shaik Anas — B.Tech Data Science student and aspiring software engineer.">
 <meta property="og:type" content="website">
@@ -1203,9 +1203,30 @@ footer p{ opacity:.75; font-size:.92rem; max-width:34ch; }
 .mt-lg{ margin-top:3rem; }
 .text-center{ text-align:center; margin-inline:auto; }
 
+
+/* ============ ACCESSIBILITY ============ */
+.skip-link{
+  position:fixed;
+  top:1rem;
+  left:1rem;
+  z-index:9999;
+  padding:.75rem 1rem;
+  border-radius:10px;
+  background:var(--text);
+  color:var(--bg);
+  font-weight:700;
+  text-decoration:none;
+  transform:translateY(-160%);
+  transition:transform var(--dur-fast) var(--ease);
+}
+.skip-link:focus{
+  transform:translateY(0);
+}
+
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 
 <a href="#main" class="skip-link">Skip to content</a>
 
@@ -1255,7 +1276,7 @@ footer p{ opacity:.75; font-size:.92rem; max-width:34ch; }
 
         <p class="hero-role" aria-live="polite"><span id="roleText"></span><span class="cursor" aria-hidden="true"></span></p>
 
-        <p class="lede">Final-year B.Tech Data Science student in Andhra Pradesh, building full-stack web apps with the MERN stack and machine learning models with Python — currently looking for a software engineering or full-stack internship where I can ship real features.</p>
+        <p class="lede">3rd-year B.Tech Data Science student in Andhra Pradesh, building full-stack web apps with the MERN stack and machine learning models with Python — currently looking for a software engineering or full-stack internship where I can ship real features.</p>
 
         <div class="hero-ctas">
           <a href="#projects" class="btn btn-primary">View projects</a>
@@ -1329,7 +1350,7 @@ footer p{ opacity:.75; font-size:.92rem; max-width:34ch; }
 
       <div class="about-grid">
         <div class="about-copy reveal">
-          <p>I'm a Final-year B.Tech Data Science student at Chalapathi Institute of Technology in Andhra Pradesh, India. I split my time between full-stack web development — HTML, CSS, JavaScript, React, Node.js, Express, and MongoDB — and the data science side of my degree: Python, SQL, exploratory data analysis, and machine learning with scikit-learn.</p>
+          <p>I'm a 3rd-year B.Tech Data Science student at Chalapathi Institute of Technology in Andhra Pradesh, India. I split my time between full-stack web development — HTML, CSS, JavaScript, React, Node.js, Express, and MongoDB — and the data science side of my degree: Python, SQL, exploratory data analysis, and machine learning with scikit-learn.</p>
           <p>My goal right now is a software engineering or full-stack development internship where I can work on production code, get code-reviewed by people better than me, and keep building the DSA and system-design fundamentals I'm still filling in.</p>
           <p>I learn best by shipping something end-to-end, breaking it, and fixing it — most of what's in the projects section below started as "let me just try this" rather than a course assignment.</p>
 
@@ -1356,7 +1377,7 @@ footer p{ opacity:.75; font-size:.92rem; max-width:34ch; }
             <div class="journey-item">
               <span class="yr">2023 – Present</span>
               <h4>B.Tech Data Science — Chalapathi Institute of Technology</h4>
-              <p>Currently in final year, 7.50 CGPA. Layering full-stack development on top of the core data science coursework.</p>
+              <p>Currently in 3rd year, 7.50 CGPA. Layering full-stack development on top of the core data science coursework.</p>
             </div>
             <div class="journey-item">
               <span class="yr">Now</span>
