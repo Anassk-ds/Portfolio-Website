@@ -7,7 +7,7 @@ This is my personal portfolio website developed using HTML and CSS. It showcases
 ---
 Education
 
-- B.Tech Data Science – Chalapathi Institute of Technology (CGPA: 7.50)
+- B.Tech Data Science – Chalapathi Institute of Technology (CGPA: 7.5)
 - Intermediate (MPC) – Narayana Junior College (60%)
 - SSC – Sri Sai High School (90%)
 
