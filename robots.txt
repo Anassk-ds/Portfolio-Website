@@ -1,1 +1,4 @@
+User-agent: *
+Allow: /
 
+Sitemap: https://anassk-ds.github.io/Portfolio-Website/sitemap.xml
